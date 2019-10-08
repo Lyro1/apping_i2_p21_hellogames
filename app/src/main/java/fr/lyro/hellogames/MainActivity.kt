@@ -1,5 +1,6 @@
 package fr.lyro.hellogames
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     // A List to store our GameLinkObjects
     val data = arrayListOf<GameLinkObject>()
+    // A variable to get selected game object
+    //val selectedGameObject = null
     // The base URL where the WebService is located
     val baseURL = "https://androidlessonsapi.herokuapp.com/api/"
     // Use GSON library to create our JSON parser
@@ -53,12 +56,12 @@ class MainActivity : AppCompatActivity() {
                         Log.d("TAG", "WebService success : " + data.size)
 
                         activity_main_list_games.setHasFixedSize(true)
-                        val recyclerAdapter = CustomRecyclerAdapter(this@MainActivity, responseData)
+                        val recyclerAdapter = CustomRecyclerAdapter(this@MainActivity, responseData, service)
                         activity_main_list_games.adapter = recyclerAdapter
                     }
                 }
                 else {
-                    Log.d("TAG", "Not 200 code")
+                    Log.d("TAG", "Error while getting response. Code " + response.code().toString())
                 }
             }
             else {
@@ -67,6 +70,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -74,5 +79,8 @@ class MainActivity : AppCompatActivity() {
         // Finally, use the service to enqueue the callback
         // This will asynchronously call the method
         service.listGames().enqueue(callback)
+
     }
+
+
 }

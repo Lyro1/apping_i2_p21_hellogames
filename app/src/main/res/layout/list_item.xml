@@ -9,16 +9,28 @@
         android:id="@+id/name"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="26dp"
         android:text="TextView"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="27dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>
