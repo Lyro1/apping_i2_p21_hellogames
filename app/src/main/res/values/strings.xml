@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Hello Games</string>
+    <string name="title_activity_game_details">GameDetailsActivity</string>
+</resources>
